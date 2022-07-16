@@ -1,7 +1,9 @@
 <template>
-  <div class="main" @click="goTOxiangq">
+  <div class="main" @click="TOxiangq">
     <div class="left">
-      <img :src="collect.houseImg" alt="" />
+      <!-- http://liufusong.top:8080 collect.houseImg
+-->
+      <img :src="`http://liufusong.top:8080${collect.houseImg}`" alt="" />
     </div>
     <div class="right">
       <h1>{{ collect.title }}</h1>
@@ -11,21 +13,45 @@
         <i>{{ collect.price }}</i> 元/月
       </p>
     </div>
+    <!-- <houseXiangq v-if="!collect.title"> </houseXiangq> -->
   </div>
 </template>
 
 <script>
+import { gethousesdata } from '@/apis/area'
+
+// import houseXiangq from '@/components/house_xiangq'
 export default {
+  name: 'collectItem',
   props: {
     collect: {
       type: Object,
       required: true
     }
   },
-  methods: {
-    goTOxiangq () {
-      console.log(11)
+  components: {
+    // houseXiangq
+  },
+  data () {
+    return {
+      houseList: {}
     }
+  },
+  methods: {
+    async TOxiangq () {
+      console.log(11)
+      try {
+        const { data } = await gethousesdata(this.collect.houseCode)
+        // console.log(data)
+        this.houseList = data.body
+        console.log(this.houseList)
+        this.$store.commit('getList', this.houseList)
+        this.$router.push(`/housexq/${this.collect.houseCode}`)
+      } catch {}
+    }
+  },
+  created () {
+    console.log(this.collect.houseCode)
   }
 }
 </script>
@@ -45,6 +71,7 @@ export default {
     background-color: pink;
     img {
       width: 100%;
+      height: 100%;
     }
   }
   .right {

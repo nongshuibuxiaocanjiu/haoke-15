@@ -11,6 +11,7 @@ const routes = [
   {
     path: '/',
     component: () => import('@/views/Layout'),
+    redirect: '/home',
     children: [
       {
         path: '/home',
@@ -37,6 +38,10 @@ const routes = [
   {
     path: '/rent',
     component: () => import('@/views/rent')
+  },
+  {
+    path: '/housexq/:id',
+    component: () => import('@/components/house_xiangq')
   }
 ]
 

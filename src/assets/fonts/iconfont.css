@@ -1,8 +1,8 @@
 @font-face {
   font-family: "toutiao"; /* Project id 3518502 */
-  src: url('iconfont.woff2?t=1657781765523') format('woff2'),
-       url('iconfont.woff?t=1657781765523') format('woff'),
-       url('iconfont.ttf?t=1657781765523') format('truetype');
+  src: url('iconfont.woff2?t=1657884695232') format('woff2'),
+       url('iconfont.woff?t=1657884695232') format('woff'),
+       url('iconfont.ttf?t=1657884695232') format('truetype');
 }
 
 .toutiao {
@@ -11,6 +11,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.toutiao-zufang:before {
+  content: "\e61a";
+}
+
+.toutiao-xiajiantou:before {
+  content: "\eb6d";
+}
+
+.toutiao-ditu:before {
+  content: "\e8ad";
+}
+
+.toutiao-ditu1:before {
+  content: "\e61b";
 }
 
 .toutiao-youjiantou1:before {

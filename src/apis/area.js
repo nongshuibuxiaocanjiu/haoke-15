@@ -8,3 +8,11 @@ export const gethouses = () => {
     url: '/houses'
   })
 }
+//
+// 查询 房屋具体数据
+export const gethousesdata = (id) => {
+  return request({
+    method: 'GET',
+    url: `/houses/${id}`
+  })
+}

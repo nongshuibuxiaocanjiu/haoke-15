@@ -24,7 +24,6 @@
     <collectItem
       v-for="(collect, index) in allCollect"
       :key="index"
-      @click="onCollectList"
       :collect="collect"
     ></collectItem>
   </div>
@@ -37,6 +36,8 @@ export default {
   name: 'collections-container',
   data () {
     return {
+      houseList: {},
+
       allCollect: []
     }
   },

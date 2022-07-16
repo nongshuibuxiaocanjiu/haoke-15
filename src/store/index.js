@@ -7,7 +7,8 @@ const TOKEN_KEY = 'TOUTIAO_USER'
 
 export default new Vuex.Store({
   state: {
-    user: getItem(TOKEN_KEY)
+    user: getItem(TOKEN_KEY),
+    list: {}
   },
   getters: {},
   mutations: {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
       setItem(TOKEN_KEY, state.user)
 
       // window.localStorage.setItem('TOKEN_KEY', JSON.stringify(state.user))
+    },
+    getList (state, val) {
+      state.list = val
     }
   },
   actions: {},
